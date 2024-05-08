@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:local="clr-namespace:App33.pages"
+             x:Class="App33.pages.page_diagram">
+    <Grid Style="{StaticResource label_format}">
+        <Label x:Name="Fon_Background" BindingContext="{Binding Source={x:Reference Switch_fon}, Path=IsToggled}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        <Grid>
+            <Image x:Name="image_fon"  BindingContext="{Binding Source={x:Reference Switch_fon}, Path=IsToggled}"   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+            <StackLayout Padding="18" >
+                <ImageButton x:Name="Icon_setting" BackgroundColor="Silver" Clicked="Icon_setting_onClicked" HeightRequest="48" CornerRadius="4" Margin="0,0,320,10"/>
+                <StackLayout x:Name="drawer_setting" HorizontalOptions="Center" IsVisible="False" BackgroundColor="Transparent">
+                    <StackLayout>
+                        <Frame Padding="5" CornerRadius="30"  BackgroundColor="Azure">
+                            <Label Text="Setting" HorizontalOptions="Center" FontSize="30" />
+                        </Frame>
+                        <Label/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Frame Padding="5" CornerRadius="30"  BackgroundColor="Azure">
+                                <Label Text="Отключить обои" FontSize="20"/>
+                            </Frame>
+                            <Switch x:Name="Switch_fon" Toggled="OnToggled"/>
+                        </StackLayout>
+
+                        <Label/>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame Padding="5" CornerRadius="30"  BackgroundColor="Azure">
+                                <Label Text="Темы:Azure/Black" FontSize="20"/>
+                            </Frame>
+                            <Label WidthRequest="20"/>
+                            <Switch x:Name="Color_Fon" Toggled="OnTogg_Color_Fon"/>
+                        </StackLayout>
+
+                        <Label/>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame Padding="5" CornerRadius="30"  BackgroundColor="Azure">
+                                <Label Text="Добавить обои" FontSize="20"/>
+                            </Frame>
+                            <Label WidthRequest="20"/>
+                            <Button x:Name="Add_Fon" BackgroundColor="Silver" HeightRequest="40" WidthRequest="40" CornerRadius="4" Clicked="Add_Fon_to_Page_onClicked"/>
+                        </StackLayout>
+
+                        <Label/>
+                        <StackLayout>
+                            <Frame Padding="5" CornerRadius="30"  BackgroundColor="Azure">
+                                <Image x:Name="Add_Image" HeightRequest="300" WidthRequest="300"/>
+                            </Frame>
+                            <Label/>
+                            <Button x:Name="Print_Fon" Text="Применить обои"  BackgroundColor="SpringGreen" CornerRadius="30" Clicked="Print_Fon_onClicked"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label HeightRequest="50"/>
+                </StackLayout>
+                
+                
+                
+                <Frame Padding="60" CornerRadius="50"  BackgroundColor="Azure">
+                    <CollectionView x:Name="day">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="Binding LineMoneyDay"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+                <Label HeightRequest="20"/>
+                
+                
+                <Frame Padding="60" CornerRadius="50"  BackgroundColor="Azure">
+                    <CollectionView x:Name="week">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="Binding LineMoneyWeek"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+                <Label HeightRequest="20"/>
+                    
+                    
+                <Frame Padding="60" CornerRadius="50"  BackgroundColor="Azure">
+                    <CollectionView x:Name="month" >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="Binding LineMoneyMonth"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+                <Label HeightRequest="50"/>
+                    
+                    
+                <Button Text="Расчитать" Padding="40" CornerRadius="50" BackgroundColor="SpringGreen"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
